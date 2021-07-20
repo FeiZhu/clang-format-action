@@ -40,6 +40,9 @@ The following file extensions are checked:
   * `.cc`
   * `.c++`
   * `.cxx`
+* CUDA files:
+  *  `.cuh`
+  *  `.cu`
 
 ## Returns:
 

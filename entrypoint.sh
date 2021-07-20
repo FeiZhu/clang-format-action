@@ -10,6 +10,8 @@
 # C/C++ files are checked. If any C files are incorrectly formatted, the script
 # lists them and exits with 1.
 #
+# Fei Zhu: Check CUDA files (.cuh, cu)
+#
 # Define your own formatting rules in a .clang-format file at your repository
 # root. Otherwise, the provided style guide (arg2) is used as a fallback.
 
@@ -54,10 +56,11 @@ fi
 exit_code=0
 
 # All files improperly formatted will be printed to the output.
-# find all C/C++ files:
+# find all C/C++/CUDA files:
 #   h, H, hpp, hh, h++, hxx
 #   c, C, cpp, cc, c++, cxx
-c_files=$(find "$CHECK_PATH" | grep -E '\.((c|C)c?(pp|xx|\+\+)*$|(h|H)h?(pp|xx|\+\+)*$)')
+#   cu, cuh
+c_files=$(find "$CHECK_PATH" | grep -E '\.((c|C)c?(pp|xx|\+\+|u|uh)*$|(h|H)h?(pp|xx|\+\+)*$)')
 
 # check formatting in each C file
 for file in $c_files; do
